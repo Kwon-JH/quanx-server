@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'spam_host_candidate',
+    'manseCalendar',
 ]
 
 MIDDLEWARE = [
