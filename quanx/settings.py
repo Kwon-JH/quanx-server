@@ -25,7 +25,7 @@ SECRET_KEY = '$ai6*97ap78(s!#frp219vfx)op=*q@574b+4-_yyz96w699k@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.quanx.localhost']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'spam_host_candidate',
+    # 'spam_host_candidate',
     'manseCalendar',
 ]
 
@@ -89,22 +89,23 @@ WSGI_APPLICATION = 'quanx.wsgi.application'
 
 # settings.py
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'mydatabase.sqlite3 ',
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'OPTIONS': {
-    #         # 'read_default_file': '/path/to/my.cnf',
-    #         'init_command': "SET default_storage_engine=INNODB; SET sql_mode='STRICT_TRANS_TABLES';",
-    #     },
-    #     'NAME': 'quanx',
-    #     'USER': 'quanx',
-    #     'PASSWORD': 'quanx',
-    #     'HOST': 'localhost',
-    #     'PORT': 3306,
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': '/Users/yoonjechoi/workspace/quanx-server/mydatabase.sqlite3',
+    #     # 'NAME': 'mydatabase.sqlite3',
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            # 'read_default_file': '/path/to/my.cnf',
+            'init_command': "SET default_storage_engine=INNODB; SET sql_mode='STRICT_TRANS_TABLES';",
+        },
+        'NAME': 'quanx',
+        'USER': 'quanx',
+        'PASSWORD': 'quanx',
+        'HOST': 'localhost',
+        'PORT': 3306,
+    }
 }
 
 
@@ -138,13 +139,14 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/Users/yoonjechoi/Sites/quanx.com/static/'
 
 
 # settings for restframework

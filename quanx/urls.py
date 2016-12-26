@@ -18,15 +18,8 @@ from django.contrib import admin
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
-import spam_host_candidate
-
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^candidate/', include('spam_host_candidate.urls')),
-
-    url(r'^spamhost/$', spam_host_candidate.views.SpamHostDayArchiveView.as_view(), name='spamhost_list'),
-    url(r'^spamhost/(?P<year>[0-9]{4})/(?P<month>[0-9]{2})/(?P<day>[0-9]{2})/$',
-        spam_host_candidate.views.SpamHostDayArchiveView.as_view(), name='spamhost_day_archive'),
 
     url(r'^api-token-auth/', obtain_jwt_token),
     url(r'^api-token-refresh/', refresh_jwt_token),
