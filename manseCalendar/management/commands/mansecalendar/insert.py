@@ -5,7 +5,7 @@ import datetime
 
 from django.core.management import BaseCommand
 
-from manseCalendar.models import Day
+from manseCalendar.models import Day, SolarTerm
 
 
 class Command(BaseCommand):
@@ -18,7 +18,17 @@ class Command(BaseCommand):
         parser.add_argument('--input', action='store', dest='input', help='calendar data file path', required=True)
 
     def handle(self, *args, **options):
-        Command.insert_days(options)
+        # Command.insert_days(options)
+        Command.insert_solarterm_characters()
+
+    @classmethod
+    def insert_solarterm_characters(cls):
+        zero_heaven_letter = u'庚'
+        zero_ground_letter = u'午'
+
+        day_zero = datetime.datetime.combine(datetime.date(1984, 6, 5), datetime.time.min)
+        id = day = SolarTerm.objects.filter(time__gte=day_zero)[0]
+
 
     @classmethod
     def insert_days(cls, options):

@@ -25,7 +25,7 @@ SECRET_KEY = '$ai6*97ap78(s!#frp219vfx)op=*q@574b+4-_yyz96w699k@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.quanx.localhost']
+ALLOWED_HOSTS = ['.quanx.localhost', u'127.0.0.1']
 
 
 # Application definition
