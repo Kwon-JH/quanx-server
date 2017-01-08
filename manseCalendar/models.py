@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import datetime
 from django.db import models
+
 
 # Create your models here.
 
+['소한', '입춘', '경칩', '청명', '입하', '망종', '소서', '입추', '백로', '한로', '입동', '대설']
 
 class ManseConstants:
     HEAVEN_LETTERS = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸']
@@ -23,20 +26,35 @@ class ManseConstants:
 
 
 class Day(models.Model):
-    year = models.PositiveSmallIntegerField()
-    month = models.PositiveSmallIntegerField()
-    day = models.PositiveSmallIntegerField()
+    id = models.AutoField(primary_key=True)
 
-    year_heaven_letter = models.CharField(max_length=6)
-    year_ground_letter = models.CharField(max_length=6)
+    year = models.PositiveSmallIntegerField(null=True)
+    month = models.PositiveSmallIntegerField(null=True)
+    day = models.PositiveSmallIntegerField(null=True)
 
-    month_heaven_letter = models.CharField(max_length=6)
-    month_heaven_letter = models.CharField(max_length=6)
+    date = models.DateField(default=datetime.date.today)
 
-    day_heaven_letter = models.CharField(max_length=6)
-    day_heaven_letter = models.CharField(max_length=6)
+    lunar_year = models.PositiveSmallIntegerField(null=True)
+    lunar_month = models.PositiveSmallIntegerField(null=True)
+    lunar_day = models.PositiveSmallIntegerField(null=True)
+
+    is_lunar_leap_month = models.BooleanField(default=False)
+
+    is_solar_term = models.BooleanField(default=False)
+
+    year_heaven_letter = models.CharField(max_length=6, null=True)
+    year_ground_letter = models.CharField(max_length=6, null=True)
+
+    month_heaven_letter = models.CharField(max_length=6, null=True)
+    month_ground_letter = models.CharField(max_length=6, null=True)
+
+    day_heaven_letter = models.CharField(max_length=6, null=True)
+    day_ground_letter = models.CharField(max_length=6, null=True)
 
 
 class SolarTerm(models.Model):
     time = models.DateTimeField()
     name = models.CharField(max_length=6)
+
+    month_heaven_letter = models.CharField(max_length=6, null=True)
+    month_ground_letter = models.CharField(max_length=6, null=True)
