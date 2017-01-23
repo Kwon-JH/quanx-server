@@ -12,7 +12,7 @@ admin.site.register(SolarTerm, SolarTermAdmin)
 
 
 class DayAdmin(admin.ModelAdmin):
-    list_display = ('date',
+    list_display = ('date', 'is_solar_term',
                     'year_heaven_letter', 'year_ground_letter',
                     'month_heaven_letter', 'month_ground_letter',
                     'day_heaven_letter', 'day_ground_letter',
