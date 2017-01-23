@@ -60,6 +60,7 @@ class Day(models.Model):
     day = models.PositiveSmallIntegerField(null=True)
 
     date = models.DateField(default=datetime.date.today)
+    week_day = models.PositiveSmallIntegerField(null=True)
 
     lunar_year = models.PositiveSmallIntegerField(null=True)
     lunar_month = models.PositiveSmallIntegerField(null=True)
