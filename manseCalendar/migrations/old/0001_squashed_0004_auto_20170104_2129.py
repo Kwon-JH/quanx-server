@@ -7,7 +7,7 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    replaces = [(b'manseCalendar', '0001_initial'), (b'manseCalendar', '0002_auto_20161224_1830'), (b'manseCalendar', '0003_auto_20170104_2128'), (b'manseCalendar', '0004_auto_20170104_2129')]
+    # replaces = [(b'manseCalendar', '0001_initial'), (b'manseCalendar', '0002_auto_20161224_1830'), (b'manseCalendar', '0003_auto_20170104_2128'), (b'manseCalendar', '0004_auto_20170104_2129')]
 
     initial = True
 
