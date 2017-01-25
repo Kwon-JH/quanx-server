@@ -37,7 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
     # 'spam_host_candidate',
     'manseCalendar',
 ]
@@ -105,6 +111,11 @@ DATABASES = {
         'PASSWORD': 'quanx',
         'HOST': 'localhost',
         'PORT': 3306,
+        'TEST': {
+            'NAME': 'test_quanx',
+            'CHARSET': 'utf8',
+
+        },
     }
 }
 
@@ -152,7 +163,7 @@ STATIC_ROOT = '/Users/yoonjechoi/Sites/quanx.com/static/'
 # settings for restframework
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
     ),
@@ -161,3 +172,10 @@ REST_FRAMEWORK = {
 
 # secret key for jwt
 SECRET_KEY='quanx django project.'
+
+
+# settings for django-rest-auth
+SITE_ID = 1
+REST_USE_JWT = True
+
+REST_SESSION_LOGIN = False

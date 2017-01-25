@@ -18,8 +18,16 @@ from django.contrib import admin
 from rest_framework.urlpatterns import format_suffix_patterns
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 
+import auth
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+
+    # url(r'^rest-auth/', include('rest_auth.urls')),
+    # url(r'^rest-auth/', include('rest_auth.urls')),
+    # url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+
+    url(r'', include('auth.urls')),
 
     url(r'^api-token-auth/', obtain_jwt_token),
     url(r'^api-token-refresh/', refresh_jwt_token),
